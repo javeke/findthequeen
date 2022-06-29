@@ -21,24 +21,22 @@ class GameClient:
       round_result = self.player.socketConnection.recv(1024).decode(encoding=UTF_FORMAT)
       scores = json.loads(round_result)
 
-      print(f"{scores['me']['username']} - {scores['me']['score']} \t\t  {scores['other']['username']} - {scores['other']['score']}")
-
-      self.player.socketConnection.send(utf8_encode("RECEIVED"))
+      print(f"My Score - {scores['me']['score']} \t\t  {scores['other']['username']} Score - {scores['other']['score']}")
 
   
   def declare_winner(self):
     game_result = self.player.socketConnection.recv(1024).decode(encoding=UTF_FORMAT)
-
+    
     final_results = json.loads(game_result)
 
     if final_results["result"] == "Victory":
       print("\n\n")
       print("Victory")
       print("Final Score")
-      print(f'{final_results["winner"]["username"]} - {final_results["winner"]["score"]} \t\t {final_results["loser"]["username"]} - {final_results["loser"]["score"]}')
+      print(f'My Score - {final_results["me"]["score"]} \t\t {final_results["other"]["username"]} Score - {final_results["other"]["score"]}')
     
     else:
       print("\n\n")
       print("Defeat")
       print("Final Score")
-      print(f'{final_results["winner"]["username"]} - {final_results["winner"]["score"]} \t\t {final_results["loser"]["username"]} - {final_results["loser"]["score"]}')
+      print(f'My Score - {final_results["me"]["score"]} \t\t {final_results["other"]["username"]} Score - {final_results["other"]["score"]}')

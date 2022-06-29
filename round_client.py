@@ -14,12 +14,14 @@ class RoundClient:
 
   def start_round(self):
     # Starting round
-    print("Starting round")
+    print("Starting round\n")
 
     # Player role
     self.role = int(self.player.socketConnection.recv(1024).decode()) 
-    print(self.role)
+    role_name = PlayerRole(self.role).name
+    print(f"For this round you are the {role_name}")
     if self.role == PlayerRole.DEALER.value:
+      print("***Your choice will be hidden***")
       print("Select a choice (1, 2, 3):")
       self.choice = getpass("Choice: ")
       self.player.socketConnection.send(utf8_encode(self.choice))
@@ -40,8 +42,8 @@ class RoundClient:
     result = self.player.socketConnection.recv(1024).decode()
 
     if result == "CORRECT":
-      print("You guessed correctly. You won this round!")
+      print("You guessed correctly. You won this round!\n\n")
     else:
-      print("You chose incorrectly. You lost this round.")
+      print("You chose incorrectly. You lost this round.\n\n")
 
     return result

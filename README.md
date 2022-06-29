@@ -5,6 +5,8 @@ dealer and one is the spotter. The dealer selects 1 of 3 positions to hide the "
 spotter tries to find the "Queen" in 1 of those 3 positions.
 The objective of the game is for the dealer to successfully hide the queen from the player for 5 rounds while the spotter will try to find the queen.
 
+During the game, you will notice that the users' password and the dealer's choice are always hidden.
+
 ## Requirements
 
 You will need to have **Python 3** downloaded and installed in order to start the game.
@@ -23,6 +25,9 @@ Run this command
 After the server has started, run the following command to start connecting to the server as a player.
 Replace the `HOST` with the actual host ip address and that the server is running on. Ensure that both 
 device have network connectivity.
+
+You may have to run `ipconfig` on Windows or `ip addr` on Linux to determine the correct ip address to use
+based on the number of network adapters you have installed on your machine.
 
 `python client.py <HOST>`
 
@@ -48,3 +53,9 @@ Then in order to run with this image use the command below
 
 `docker run -p 7621:7621 <YOUR_DOCKER_USERNAME>/ftqserver:latest`
 
+
+
+### Docker Note
+
+Bare in mind, if you are running the server using docker, you will need to supply the proper ip address to the client. If the docker host is the same machine as the client application then use `127.0.0.1` for the 
+ip address, otherwise more configuration will be required to set up this communication.

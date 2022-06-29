@@ -51,6 +51,9 @@ def run(HOST_IP):
       game.start()
       game.declare_winner()
 
+      print("\n\n")
+      print(player.recv(1024).decode(encoding=UTF_FORMAT))
+
     else:
       print("Invalid credentials")
       print("Closing connection...")
@@ -64,5 +67,4 @@ if __name__ == "__main__":
     sys.exit(1)
 
   host_ip_address = sys.argv[1]
-  print(host_ip_address)
   run(host_ip_address)

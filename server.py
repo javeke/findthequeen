@@ -62,6 +62,14 @@ def run():
             game.start()
             game.declare_winner()
 
+            logging.info("Game Over")
+            
+
+            player1.socketConnection.send(utf8_encode("Thanks For Playing"))
+            player2.socketConnection.send(utf8_encode("Thanks For Playing"))
+            
+            logging.info("Closing server...")
+
         else:
           logging.info("Player credentials invalid")
           player.sendall(bytes(json.dumps({ "valid":False }), encoding=UTF_FORMAT))

@@ -1,9 +1,11 @@
 import json
+from time import sleep
 from utils.Player import Player
 from utils.PlayerRole import PlayerRole
 from round import Round
 from utils.utilities import UTF_FORMAT, utf8_encode
 import random
+from utils.logger import logging
 
 class Game:
 
@@ -15,6 +17,7 @@ class Game:
     self.winner = None
 
   def start(self):
+    logging.info("Starting game")
     self.player1.socketConnection.send(utf8_encode("START"))
     self.player2.socketConnection.send(utf8_encode("START"))
 
@@ -23,13 +26,14 @@ class Game:
     self.player1.role = randomRole
     self.player2.role = PlayerRole(1 - randomRole.value)
 
-    for _ in range(Game.GAME_ROUNDS):
+    for round_number in range(Game.GAME_ROUNDS):
       round = None
       if self.player1.role == PlayerRole.DEALER:
         round = Round(self.player1, self.player2)
       else:
         round = Round(self.player2, self.player1)
       
+      logging.info(f"Starting round {round_number+1}")
       round_winner = round.start_round()
 
       if round_winner.username == self.player1.username:
@@ -63,25 +67,24 @@ class Game:
         }), encoding=UTF_FORMAT)
       )
 
-      # RECEIVED
-      self.player1.socketConnection.recv(1024).decode(encoding=UTF_FORMAT)
-      # RECEIVED
-      self.player2.socketConnection.recv(1024).decode(encoding=UTF_FORMAT)
+      sleep(1)
       
       self.player1.role = self.player2.role
       self.player2.role = PlayerRole(1 - self.player2.role.value)
 
 
   def declare_winner(self):
+    logging.info("Declaring the winner")
+    
     if self.player1.points > self.player2.points:
       self.player1.socketConnection.send(
         bytes(json.dumps({
           "result":"Victory",
-          "winner":{
+          "me":{
             "username": self.player1.username,
             "score": self.player1.points
           },
-          "loser":{
+          "other":{
             "username": self.player2.username,
             "score": self.player2.points
           }
@@ -91,27 +94,29 @@ class Game:
       self.player2.socketConnection.send(
         bytes(json.dumps({
           "result":"Defeat",
-          "winner":{
+          "other":{
             "username": self.player1.username,
             "score": self.player1.points
           },
-          "loser":{
+          "me":{
             "username": self.player2.username,
             "score": self.player2.points
           }
         }), encoding=UTF_FORMAT)
       )
+
+      sleep(1)
       return self.player1
 
 
     self.player1.socketConnection.send(
       bytes(json.dumps({
         "result":"Defeat",
-        "loser":{
+        "me":{
           "username": self.player1.username,
           "score": self.player1.points
         },
-        "winner":{
+        "other":{
           "username": self.player2.username,
           "score": self.player2.points
         }
@@ -121,14 +126,15 @@ class Game:
     self.player2.socketConnection.send(
       bytes(json.dumps({
         "result":"Victory",
-        "winner":{
+        "other":{
           "username": self.player1.username,
           "score": self.player1.points
         },
-        "loser":{
+        "me":{
           "username": self.player2.username,
           "score": self.player2.points
         }
       }), encoding=UTF_FORMAT)
     )
+    sleep(1)
     return self.player2
