@@ -1,0 +1,16 @@
+FROM python:3.9-alpine
+
+WORKDIR /home/ftq
+
+COPY utils utils
+
+COPY ["game_client.py", "round_client.py", "__init__.py", "./"]
+
+COPY client.py client.py
+
+ENTRYPOINT ["python", "client.py"]
+
+CMD [ "HOST" ]
+
+
+

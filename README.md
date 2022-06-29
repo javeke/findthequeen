@@ -81,3 +81,25 @@ Then in order to run with this image use the command below
 
 Bare in mind, if you are running the server using docker, you will need to supply the proper ip address to the client. If the docker host is the same machine as the client application then use `127.0.0.1` for the 
 ip address, otherwise more configuration will be required to set up this communication.
+
+
+## Live Instance
+
+There is currently a alpha version of the server that is deployed at [Find The Queen Live](ftq.javierbryan.com)
+
+
+Navigate to the root directory of findthequeen and run the command below
+
+`python client.py ftq.javierbryan.com`
+
+Once you have a second player. Run the same command on the second player's machine from the root directory of findthequeen and enjoy!!
+
+
+
+
+
+### Work To Be Done
+
+Separate the client and server into individual modules then package.
+Create a stand alone executable for the client to remove the need 
+to download the source files to play.

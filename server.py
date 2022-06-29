@@ -23,7 +23,7 @@ def run():
     server.bind((HOST_IP, PORT))
     server.listen(BACKLOG_SIZE)
 
-    while not game_started:
+    while True:
       try:
         player, address = server.accept()
         logging.info("Accepting player")
@@ -67,8 +67,8 @@ def run():
 
             player1.socketConnection.send(utf8_encode("Thanks For Playing"))
             player2.socketConnection.send(utf8_encode("Thanks For Playing"))
-            
-            logging.info("Closing server...")
+
+            game_started = False
 
         else:
           logging.info("Player credentials invalid")
