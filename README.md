@@ -25,3 +25,26 @@ Replace the `HOST` with the actual host ip address and that the server is runnin
 device have network connectivity.
 
 `python client.py <HOST>`
+
+
+## Docker Install
+
+There is a Docker image available for the server at [Find The Queen Server](https://hub.docker.com/r/javeke/ftqserver)
+
+Run this command to pull the docker image from Docker Hub
+
+`docker pull javeke/ftqserver`
+
+Then run this command to start the server using docker
+
+`docker run -p 7621:7621 javeke/ftqserver`
+
+
+You can also choose to build the docker image yourself with the `Dockerfile.server` that is in the repository
+
+Run  `docker build <YOUR_DOCKER_USERNAME>/ftqserver:latest -f Dockerfile.server .`
+
+Then in order to run with this image use the command below
+
+`docker run -p 7621:7621 <YOUR_DOCKER_USERNAME>/ftqserver:latest`
+

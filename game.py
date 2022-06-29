@@ -1,7 +1,7 @@
 import json
 from utils.Player import Player
 from utils.PlayerRole import PlayerRole
-from server.Round import Round
+from round import Round
 from utils.utilities import UTF_FORMAT, utf8_encode
 import random
 

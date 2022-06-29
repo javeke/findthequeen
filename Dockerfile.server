@@ -2,11 +2,17 @@ FROM python:3.9-alpine
 
 WORKDIR /home/ftq
 
+COPY data data
+
+COPY service service
+
 COPY utils utils
 
-COPY server server
+COPY ["game.py", "round.py", "__init__.py", "./"]
 
-CMD ["python", "server/server.py"]
+COPY server.py server.py
+
+CMD ["python", "server.py"]
 
 
 

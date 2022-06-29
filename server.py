@@ -1,6 +1,6 @@
 import json
 import socket
-from server.Game import Game
+from game import Game
 from utils.Player import Player
 from utils.logger import logging
 from service import auth
