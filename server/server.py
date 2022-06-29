@@ -1,7 +1,7 @@
 import json
 import socket
-from game.server.Game import Game
-from game.Player import Player
+from server.Game import Game
+from utils.Player import Player
 from utils.logger import logging
 from service import auth
 from utils.utilities import utf8_encode, UTF_FORMAT

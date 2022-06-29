@@ -1,6 +1,6 @@
 import json
-from game.Player import Player
-from game.client.RoundClient import RoundClient
+from utils.Player import Player
+from client.RoundClient import RoundClient
 from utils.utilities import UTF_FORMAT, utf8_encode
 
 class GameClient:

@@ -1,6 +1,6 @@
 from secrets import choice
-from game.Player import Player
-from game.PlayerRole import PlayerRole
+from utils.Player import Player
+from utils.PlayerRole import PlayerRole
 from utils.utilities import utf8_encode
 from getpass import getpass
 

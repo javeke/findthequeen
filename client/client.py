@@ -1,7 +1,7 @@
 import json
 import socket
-from game.Player import Player
-from game.client.GameClient import GameClient
+from utils.Player import Player
+from client.GameClient import GameClient
 from utils.utilities import UTF_FORMAT, utf8_encode
 from getpass import getpass
 import sys

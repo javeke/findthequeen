@@ -1,4 +1,4 @@
-from game.Player import Player
+from utils.Player import Player
 from utils.utilities import utf8_encode
 from utils.logger import logging
 

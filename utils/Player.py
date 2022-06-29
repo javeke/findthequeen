@@ -1,6 +1,6 @@
 from socket import socket
 
-from game.PlayerRole import PlayerRole
+from utils.PlayerRole import PlayerRole
 
 
 class Player:
