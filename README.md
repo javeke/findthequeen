@@ -85,7 +85,7 @@ ip address, otherwise more configuration will be required to set up this communi
 
 ## Live Instance
 
-There is currently a alpha version of the server that is deployed at [Find The Queen Live](ftq.javierbryan.com)
+There is currently an alpha version of the server that is deployed at [Find The Queen Live](ftq.javierbryan.com)
 
 
 Navigate to the root directory of findthequeen and run the command below
