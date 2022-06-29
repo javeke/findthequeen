@@ -23,10 +23,10 @@ Run this command
 `python server.py`
 
 After the server has started, run the following command to start connecting to the server as a player.
-Replace the `HOST` with the actual host ip address and that the server is running on. Ensure that both 
-device have network connectivity.
+Replace the `HOST` with the actual host ip address that the server is running on. Ensure that both 
+device are able to connect over a network if server and client are running on different machines.
 
-You may have to run `ipconfig` on Windows or `ip addr` on Linux to determine the correct ip address to use
+You may need to run `ipconfig` on Windows or `ip addr` on Linux to determine the correct ip address to use
 based on the number of network adapters you have installed on your machine.
 
 `python client.py <HOST>`
