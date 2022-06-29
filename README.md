@@ -1,5 +1,7 @@
 # Multiplayer Find the Queen Game
 
+## How To Play
+
 **Find the Queen** is a simple multiplayer game played between two players where one is the 
 dealer and one is the spotter. The dealer selects 1 of 3 positions to hide the "Queen" and the 
 spotter tries to find the "Queen" in 1 of those 3 positions.
@@ -7,11 +9,18 @@ The objective of the game is for the dealer to successfully hide the queen from 
 
 During the game, you will notice that the users' password and the dealer's choice are always hidden.
 
+### Rules of the game
+
+On each turn, the dealer will select a number between 0 and 4 and then the spotter will select a number between 0 and 4. If the spotter chooses
+the same number as the dealer then the spotter wins the round and gains 1 point.
+If the spotter chooses incorrectly the dealer wins the round and gains 1 point.
+After 5 rounds the player with the most points win.
+
 ## Requirements
 
-You will need to have **Python 3** downloaded and installed in order to start the game.
+You will need to have **Python 3.9** downloaded and installed in order to start the game.
 
-Follow this [link](https://www.python.org/downloads/) to download **Python 3** in case you do not have it already.
+Follow this [link](https://www.python.org/downloads/) to download **Python 3.9** in case you do not have it already.
 
 
 ## GitHub Clone
