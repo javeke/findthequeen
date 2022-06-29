@@ -27,6 +27,7 @@ def run(HOST_IP):
     # Receive RECEIVED
     player.recv(1024).decode() 
 
+    print("***Your password will be hidden***")
     print("Please enter your password")
     password = getpass("Password: ")
 
