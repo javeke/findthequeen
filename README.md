@@ -14,6 +14,19 @@ You will need to have **Python 3** downloaded and installed in order to start th
 Follow this [link](https://www.python.org/downloads/) to download **Python 3** in case you do not have it already.
 
 
+## GitHub Clone
+
+You can download or clone the entire source code for the project and play it yourself.
+
+Run this command to clone the repository
+
+`git clone https://github.com/javeke/findthequeen.git`
+
+Navigate into the findthequeen directory 
+
+`cd findthequeen`
+
+
 ## Starting The Game
 
 To start the game, you will need to launch the game server first.
