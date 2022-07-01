@@ -69,6 +69,7 @@ def run():
             player2.socketConnection.send(utf8_encode("Thanks For Playing"))
 
             game_started = False
+            connected_players = []
 
         else:
           logging.info("Player credentials invalid")
